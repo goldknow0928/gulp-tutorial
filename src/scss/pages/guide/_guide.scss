@@ -1,0 +1,135 @@
+.guide {
+    header {     
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;   
+        padding: 20px 30px;
+        font-family: 'Montserrat';
+        color: #fff;   
+        background-color: #ff5f45; 
+        z-index: 100; 
+        h1 {                    
+            font-size: 35px;   
+            font-weight: 500;                    
+        }
+        p {
+            font-size: 17px;                    
+        }
+    }
+
+    nav {
+        position: fixed;
+        left: 0;
+        top: 117px;
+        width: 200px;
+        height: 100%;
+        background: #f4f6f7;
+        border-right: 1px solid #e7e8e9;
+        ul {
+            padding: 20px 0;
+            li {
+                @include display-flex($diplayFlexStartCenter...);
+                height: 60px;
+                padding: 0 30px;
+                font-family: 'Montserrat';
+                font-weight: 500;
+                letter-spacing: 0;
+                
+                a {
+                    position: relative;
+
+                    &.on {
+                        color: #ff5f45;
+                        &::before {
+                            display: block;
+                        }
+                    }
+    
+                    &::before {
+                        @include pseudo-base(none, 3px, 100%);
+                        left: -10px;
+                        background-color: #ff5f45;
+                    }
+                }
+            }
+        }
+    }
+
+    section {
+        height: 100vh;
+        margin-bottom: 200px;
+    }
+
+    .content {
+        padding-left: 200px;
+        padding-top: 117px;
+        .wrap {
+            padding: 30px;
+        }
+
+        h2 {
+            text-indent: -9999px;
+        }
+        
+        h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-family: 'Montserrat';
+            font-size: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid #f4f6f7;
+        }
+
+        .list {
+            margin-bottom: 80px;
+            .bullet {
+                li {
+                    position: relative;
+                    padding-left: 10px;
+                    &::before {
+                        @include list-bullet(5px, 5px, #333, 0)
+                    }
+                }
+            }
+        }
+
+        .code-copy {
+            text-align: left;
+            font-family: 'Montserrat';
+            font-size: 13px;
+            letter-spacing: 1px; 
+            background-color: #f4f6f7;
+        }
+
+        // color 
+        .palette {
+            @include display-flex($diplayInlineFlexStart...);
+            @include flex-wrap(wrap);
+            li {         
+                position: relative;    
+                width: 180px;
+                height: 180px;
+                letter-spacing: 0;                
+                &.color1 { background-color: #d6d6d6; }
+                &.color2 { background-color: #a7a7a7; }
+                &.color3 { background-color: #848484; }
+                &.color4 { background-color: #676767; }
+                &.color5 { background-color: #575757; }
+                p {
+                    position: absolute;
+                    left: 20px;
+                    bottom: 20px;
+                    color: #fff;
+                    font-family: 'Montserrat';                    
+                    font-size: 15px;
+                    font-weight: 500;
+                    text-align: left;
+                    line-height: 1.8;
+                    letter-spacing: 1px;                    
+                }
+            }
+        }
+    }
+}
+

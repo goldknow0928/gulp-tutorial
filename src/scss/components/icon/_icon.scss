@@ -1,0 +1,39 @@
+.ico-close {
+    // @include icon-close();
+    &.type2 {
+        @include icon-close(16px, 2px, #666, 10px, inline-block, relative);     
+        background-color: #f4f4f4;
+        border-radius: 50%;
+    }
+}
+
+.ico-triangle {
+    // @include icon-triangle(); 
+    &.down {
+        @include icon-triangle('down', 30px, 15px, #000, inline-block); 
+    }
+    &.right {
+        @include icon-triangle('right',30px, 50px, #333, inline-block); 
+    }
+}
+
+.ico-bullet {
+    // @include icon-bullet(); 
+    &.down {
+        @include icon-bullet('down', 30px, 15px, 5px, #222, inline-block, relative);
+    }
+    &.right {
+        @include icon-bullet('right', 20px, 30px, 3px, #222, inline-block, relative); 
+    }
+}
+
+.ico-arrow {
+    // @include icon-arrow(); 
+    &.left {
+        @include icon-arrow('left', 30px, 20px, 2px, #333, inline-block, relative);
+    }
+}
+
+.ico-hamburger {
+    @include icon-hamburger(20px, 3px, 6px, #333, 0); 
+}

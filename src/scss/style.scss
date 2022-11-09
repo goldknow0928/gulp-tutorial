@@ -1,0 +1,28 @@
+/* common.css */
+
+// helpers
+@import './helpers/variable';       // 환경변수
+@import './helpers/mixin';          // mixin
+@import './helpers/icon';           // icon 
+@import './helpers/flex';           // flex 
+@import './helpers/media';          // media query
+
+// base
+@import './base/reset';             // reset
+@import './base/com';               // 프로젝트 환경 스타일
+
+// vender                           // library  
+
+// components                    
+@import './components/button/button'; 
+@import './components/icon/icon'; 
+
+// layout       
+@import './layouts/header';                    
+@import './layouts/footer';                    
+@import './layouts/gnb';                    
+//@import './layouts/wrapper';                    
+
+// pages
+//@import './pages/guide/guide';
+@import './pages/pages';

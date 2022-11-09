@@ -1,0 +1,85 @@
+// a block
+@mixin a-block($block) {
+	display: $block;
+	width: 100%;
+	height: 100%;
+}
+
+// transition
+@mixin transition($s){
+	transition: all $s;
+}
+
+// box center
+@mixin box-center() {
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+// span base
+@mixin span-base ($display, $width, $height) {
+    display: $display;
+    width: $width;
+	height: $height;
+	text-indent: -9999px;
+}
+
+// Pseudo class base
+@mixin pseudo-base ($display, $width, $height) {
+	content:'';
+	position: absolute;
+    display: $display;
+    width: $width;
+	height: $height;
+}
+
+// sprite image
+@mixin bgImg($p, $s) {
+    background-position: $p;
+    background-size: $s;
+    background-repeat: no-repeat;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+// ellipsis
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
+// placeholder color
+@mixin placeholder-color($color: #b5b5b5) {
+	&::-webkit-input-placeholder { color: $color; }
+	&:-ms-input-placeholder { color: $color; }
+	&::-moz-placeholder { color: $color; opacity: 1; }
+	&:-moz-placeholder { color: $color; opacity: 1; }
+}
+
+@mixin list-bullet($width: 2px, $height: 2px, $bgColor: #000, $radius: 50%) {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $width;
+    height: $height;
+    background-color: $bgColor;
+    border-radius: $radius;
+}

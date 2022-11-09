@@ -1,0 +1,29 @@
+// 필요한 환경변수 추가해서 사용
+
+// text color
+$baseColor: #333;
+$placeholderColor: #888;
+
+// button color
+
+// background color
+
+// font weight
+
+// display flex
+$diplayFlexStart: flex, start, start;
+$diplayInlineFlexStart: inline-flex, start, start;
+
+$diplayFlexCenterStart: flex, center, start;
+$diplayInlineFlexCenterStart: inline-flex, center, start;
+
+$diplayFlexStartCenter: flex, start, center;
+
+$diplayFlexCenter: flex, center, center;
+$diplayInlineFlexCenter: inline-flex, center, center;
+
+$diplayFlexBetweenStart: flex, space-between, start;
+$diplayInlineFlexBetweenStart: inline-flex, space-between, start;
+
+$diplayFlexBetweenCenter: flex, space-between, center;
+$diplayInlineFlexBetweenCenter: inline-flex, space-between, center;

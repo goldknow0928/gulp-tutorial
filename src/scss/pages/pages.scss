@@ -1,0 +1,63 @@
+//val
+$inrPd: 30px;
+
+//common
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+//wrap
+.wrap {
+    flex: 1;
+    margin-top: 65px;
+
+    section {
+        width: 100%;
+        height: calc(100vh - 66px);
+    }
+
+    $pages: ('home', 'about', 'products', 'contact');
+
+    @for $i from 1 through length($pages) {
+        section:nth-child(#{$i}) {
+            background-color: lighten(#444, $i * 5%);
+            color: #fff;
+        }
+    }
+
+    .inner {
+        padding: $inrPd;
+    }
+}
+
+//header
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 66px;
+    padding: $inrPd;
+    color: #fff;
+    background-color: #ff5f45;
+    z-index: 100;
+
+    h1 {
+        font-size: 35px;
+        font-weight: 500;
+    }
+}
+
+//footer
+footer {
+    padding: $inrPd;
+    color: #fff;
+    background-color: #ff5f45;
+}
