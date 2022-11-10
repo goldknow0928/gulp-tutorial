@@ -1,19 +1,24 @@
 <!-- head -->
-@@include('./include/head.html')
+@@include('../include/head.html', {
+page_name : 'ABOUT'
+})
 
 <!-- header -->
-@@include('./include/header.html')
+@@include('../include/header.html')
 
 <!-- [s] content -->
 <main class="wrap">
     <section class="about">
-        <div class="inner">about</div>
+        <div class="inner">
+            <h2>about</h2>
+            <p>소개</p>
+        </div>
     </section>
 </main>
 <!-- [e] content -->
 
 <!-- footer -->
-@@include('./include/footer.html')
+@@include('../include/footer.html')
 
 <!-- script -->
-@@include('./include/script.html')
+@@include('../include/script.html')

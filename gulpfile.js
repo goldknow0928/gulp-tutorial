@@ -1,24 +1,25 @@
 'use strict';
 
 const gulp = require('gulp');
+const connect = require('gulp-connect');
 const sass = require('gulp-sass')(require('sass'));
+const fileinclude = require('gulp-file-include');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const postcss = require('gulp-postcss');
-const fileinclude = require('gulp-file-include');
 
-// path
+/**
+ * ------------------------------------
+ *      path
+ * ------------------------------------
+ */
 const paths = {
     styles: {
-        src: './src/scss/**/*.scss', //개발용 폴더
-        dest: './dist/css' //빌드될 폴더
+        src: './src/scss/**/*.scss', // 개발용 폴더
+        dest: './dist/css' // 빌드될 폴더
     },
     html: {
         src: {
-            /**
-             * 초반 레이아웃 작업시 include 파일 watch
-             * 이후에는 include 파일 watch 예외
-             */
             pass: './src/html/**/*', //불러올 파일의 위치
             exit: '!' + './src/html/include*' //읽지 않고 패스할 파일의 위치
         },
@@ -26,7 +27,11 @@ const paths = {
     }
 };
 
-// scss compile
+/**
+ * ------------------------------------
+ *      scss compile
+ * ------------------------------------
+ */
 function buildStyles() {
     return (
         gulp
@@ -37,11 +42,15 @@ function buildStyles() {
         .pipe(sass())
         .pipe(postcss([autoprefixer(), cssnano()]))
         .pipe(gulp.dest(paths.styles.dest))
+        .pipe(connect.reload())
     );
 };
-exports.buildStyles = buildStyles;
 
-// include HTML
+/**
+ * ------------------------------------
+ *      include HTML
+ * ------------------------------------
+ */
 function includeHTML() {
     return gulp.src([
             paths.html.src.pass,
@@ -51,12 +60,39 @@ function includeHTML() {
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest(paths.html.dest));
+        .pipe(gulp.dest(paths.html.dest))
+        .pipe(connect.reload())
 }
-exports.default = includeHTML;
 
-// watch
-exports.watch = function () {
+/**
+ * ------------------------------------
+ *      gulp-connect
+ * ------------------------------------
+ */
+function server() {
+    connect.server({
+        root: './',
+        livereload: true,
+        port: 9000
+    });
+}
+
+/**
+ * ------------------------------------
+ *      watch
+ * ------------------------------------
+ */
+function watcher() {
     gulp.watch(paths.styles.src, buildStyles);
     gulp.watch(paths.html.src.pass, includeHTML);
-};
+}
+
+
+/**
+ * ------------------------------------
+ *      build
+ * ------------------------------------
+ */
+const build = gulp.series(gulp.parallel(buildStyles, includeHTML, watcher, server));
+
+exports.default = build;
